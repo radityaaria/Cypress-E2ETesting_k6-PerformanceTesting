@@ -12,6 +12,6 @@ describe('login negative validation prefix', () => {
             .and('be.disabled');
 
         cy.url().should('include', '/login');
-        cy.screenshot('login-negative-nomor-hp-validasi-prefix');
+        cy.screenshotFull('login-negative-nomor-hp-validasi-prefix');
     });
 });

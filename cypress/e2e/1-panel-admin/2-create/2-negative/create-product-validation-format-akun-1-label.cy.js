@@ -28,6 +28,6 @@ describe('Create Product Negative - Validation Format Akun 1 Label', () => {
             const t = $body.text().toLowerCase();
             expect(/format|label|wajib|diisi/i.test(t)).to.be.true;
         });
-        cy.screenshot('create-product-validation-format-akun-1-label-kosong');
+        cy.screenshotFull('create-product-validation-format-akun-1-label-kosong');
     });
 });

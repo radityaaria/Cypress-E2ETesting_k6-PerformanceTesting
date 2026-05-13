@@ -11,6 +11,6 @@ describe('login negative empty field', () => {
             .should('exist')
             .and('be.disabled');
 
-        cy.screenshot('login-negative-kolom-kosong');
+        cy.screenshotFull('login-negative-kolom-kosong');
     });
 });

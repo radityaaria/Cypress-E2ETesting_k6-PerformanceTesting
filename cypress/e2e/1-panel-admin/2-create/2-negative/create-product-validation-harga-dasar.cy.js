@@ -51,6 +51,6 @@ describe('Create Product Negative - Validation Harga Dasar', () => {
         h.assertCreateProductNotPosted();
         h.assertStaysOnCreatePage();
 
-        cy.screenshot('create-product-validation-harga-dasar');
+        cy.screenshotFull('create-product-validation-harga-dasar');
     });
 });

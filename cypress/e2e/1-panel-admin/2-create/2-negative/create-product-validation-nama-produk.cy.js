@@ -1,13 +1,12 @@
 const h = require('../../../../support/product-create-validation-helpers');
 
-describe('Create Product Negative - Validation Thumbnail', () => {
+describe('Create Product Negative - Validation Nama Produk', () => {
     beforeEach(() => {
         h.setupCreateProductValidationTest();
     });
 
-    it('thumbnail produk wajib diunggah', () => {
-        cy.get('.v-field__input[id*="Nama Produk"]').clear().type('Produk tanpa thumbnail');
-        cy.get('textarea[placeholder*="Deskripsi"]').clear().type('Deskripsi');
+    it('nama produk wajib diisi', () => {
+        cy.get('textarea[placeholder*="Deskripsi"]').clear().type('Deskripsi tanpa nama produk');
         h.selectSlugPremiumAccount();
         h.selectKategoriCypress();
         h.selectVarianCypress();
@@ -16,8 +15,11 @@ describe('Create Product Negative - Validation Thumbnail', () => {
         h.selectRandomAkunTidak();
         h.fillFormat1WithLabel();
         h.fillNamaPaketDanHargaDasar();
+        h.uploadThumbnail();
 
-        h.submitExpectingClientValidation(/thumbnail|unggah|gambar|wajib/i);
-        cy.screenshot('create-product-validation-thumbnail');
+        cy.get('.v-field__input[id*="Nama Produk"]').clear();
+
+        h.submitExpectingClientValidation(/nama produk.*wajib|wajib.*nama produk|nama produk.*diisi/i);
+        cy.screenshotFull('create-product-validation-nama-produk');
     });
 });

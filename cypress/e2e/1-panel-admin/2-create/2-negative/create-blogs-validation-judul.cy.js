@@ -14,6 +14,6 @@ describe('Create Blogs Negative - Validation Judul', () => {
             .click();
 
         cy.url().should('include', '/blogs/create');
-        cy.screenshot('create-blogs-validation-judul');
+        cy.screenshotFull('create-blogs-validation-judul');
     });
 });

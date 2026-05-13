@@ -10,6 +10,6 @@ describe('Create Product Negative - Validation Slug', () => {
         cy.get('textarea[placeholder*="Deskripsi"]').clear().type('Deskripsi');
 
         h.submitExpectingClientValidation(/slug.*wajib|wajib.*slug|slug.*dipilih/i);
-        cy.screenshot('create-product-validation-slug');
+        cy.screenshotFull('create-product-validation-slug');
     });
 });

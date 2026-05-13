@@ -39,6 +39,6 @@ describe('Create Point Settings Negative - Empty Submission', () => {
 
         cy.contains('Variant wajib dipilih').should('be.visible');
         cy.contains('Tipe produk wajib dipilih').should('be.visible');
-        cy.screenshot('create-point-setting-validation-empty-submission');
+        cy.screenshotFull('create-point-setting-validation-empty-submission');
     });
 });

@@ -1,4 +1,4 @@
-describe('Create Point Settings Negative - Validation Variant', () => {
+describe('Create Point Settings Negative - Validation Tipe Produk', () => {
     beforeEach(() => {
         cy.login();
         cy.visit('/point-settings');
@@ -13,15 +13,17 @@ describe('Create Point Settings Negative - Validation Variant', () => {
             .should('be.visible');
     };
 
-    const selectProductType = () => {
-        cy.get('[id*="app-select-Tipe Produk"]')
-            .eq(1)
-            .parent()
-            .parent()
-            .click();
+    const selectVariant = () => {
+        cy.contains('.v-card', 'Tambah Pengaturan Poin')
+            .within(() => {
+                cy.get('[id*="app-select-Varian"]')
+                    .eq(0)
+                    .closest('[role="combobox"]')
+                    .click();
+            });
 
         cy.get('.v-list-item')
-            .contains('Cypress Type')
+            .contains('Cypress')
             .should('be.visible')
             .click();
     };
@@ -46,9 +48,9 @@ describe('Create Point Settings Negative - Validation Variant', () => {
         cy.contains('.v-card', 'Tambah Pengaturan Poin').should('be.visible');
     };
 
-    it('dropdown Variant wajib dipilih', () => {
+    it('dropdown Tipe Produk wajib dipilih', () => {
         openCreatePointSettingModal();
-        selectProductType();
+        selectVariant();
 
         cy.get('input[id*="Point"]')
             .not('[id*="Konversi Point"]')
@@ -61,6 +63,6 @@ describe('Create Point Settings Negative - Validation Variant', () => {
             .type('100');
 
         assertCreateRequestNotSent();
-        cy.screenshot('create-point-setting-validation-variant-wajib-dipilih');
+        cy.screenshotFull('create-point-setting-validation-tipe-produk-wajib-dipilih');
     });
 });

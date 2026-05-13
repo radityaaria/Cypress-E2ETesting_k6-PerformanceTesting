@@ -22,6 +22,6 @@ describe('Create Product Negative - Validation Deskripsi', () => {
         h.uploadThumbnail();
 
         h.submitExpectingClientValidation(/deskripsi.*wajib|wajib.*deskripsi|deskripsi.*diisi/i);
-        cy.screenshot('create-product-validation-deskripsi');
+        cy.screenshotFull('create-product-validation-deskripsi');
     });
 });

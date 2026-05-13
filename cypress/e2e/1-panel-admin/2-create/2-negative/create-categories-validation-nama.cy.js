@@ -28,6 +28,6 @@ describe('Create Categories Negative - Validation Nama Kategori', () => {
         });
 
         cy.contains('Masukkan nama kategori').should('be.visible');
-        cy.screenshot('create-categories-validation-nama-kosong');
+        cy.screenshotFull('create-categories-validation-nama-kosong');
     });
 });

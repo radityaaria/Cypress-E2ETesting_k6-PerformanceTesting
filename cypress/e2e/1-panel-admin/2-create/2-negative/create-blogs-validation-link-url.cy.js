@@ -14,6 +14,6 @@ describe('Create Blogs Negative - Validation Link URL', () => {
             .click();
 
         cy.url().should('include', '/blogs/create');
-        cy.screenshot('create-blogs-validation-link-url');
+        cy.screenshotFull('create-blogs-validation-link-url');
     });
 });

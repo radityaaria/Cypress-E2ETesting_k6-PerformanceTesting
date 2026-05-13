@@ -84,6 +84,6 @@ describe('Create Point Settings Negative - Validation Konversi Point', () => {
         cy.get('@konversiPointInput').clear().type('-100');
         assertInvalidCreateSubmission();
 
-        cy.screenshot('create-point-setting-validation-konversi-point');
+        cy.screenshotFull('create-point-setting-validation-konversi-point');
     });
 });

@@ -80,6 +80,6 @@ describe('Create Point Settings Negative - Validation Point', () => {
         cy.get('@pointInput').clear().type('-10');
         assertInvalidCreateSubmission();
 
-        cy.screenshot('create-point-setting-validation-point-input');
+        cy.screenshotFull('create-point-setting-validation-point-input');
     });
 });

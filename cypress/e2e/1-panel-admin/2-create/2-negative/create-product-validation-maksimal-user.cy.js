@@ -34,6 +34,6 @@ describe('Create Product Negative - Validation Maksimal User', () => {
         h.assertCreateProductNotPosted();
         h.assertStaysOnCreatePage();
 
-        cy.screenshot('create-product-validation-maksimal-user');
+        cy.screenshotFull('create-product-validation-maksimal-user');
     });
 });

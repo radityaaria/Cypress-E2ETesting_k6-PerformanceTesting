@@ -18,6 +18,6 @@ describe('Create Product Negative - Validation Random Akun', () => {
         h.uploadThumbnail();
 
         h.submitExpectingClientValidation(/random akun.*wajib|wajib.*random akun|random akun.*dipilih/i);
-        cy.screenshot('create-product-validation-random-akun');
+        cy.screenshotFull('create-product-validation-random-akun');
     });
 });

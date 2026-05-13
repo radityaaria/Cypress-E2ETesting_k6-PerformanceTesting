@@ -21,7 +21,7 @@ describe('login negative wrong number or password', () => {
         cy.get(':nth-child(2) > .v-btn').click();
 
         cy.contains(toastErrorKredensial, { timeout: 15000 }).should('be.visible');
-        cy.screenshot('login-negative-password-salah-toast');
+        cy.screenshotFull('login-negative-password-salah-toast');
         cy.url().should('include', '/login');
     });
 });

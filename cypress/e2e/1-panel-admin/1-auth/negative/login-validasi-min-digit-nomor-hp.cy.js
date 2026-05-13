@@ -12,6 +12,6 @@ describe('login negative validation minimum digit', () => {
             .and('be.disabled');
 
         cy.url().should('include', '/login');
-        cy.screenshot('login-negative-validasi-min-digit-nomor-hp');
+        cy.screenshotFull('login-negative-validasi-min-digit-nomor-hp');
     });
 });

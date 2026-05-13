@@ -14,6 +14,6 @@ describe('Create Blogs Negative - Validation Konten', () => {
             .click();
 
         cy.url().should('include', '/blogs/create');
-        cy.screenshot('create-blogs-validation-konten');
+        cy.screenshotFull('create-blogs-validation-konten');
     });
 });

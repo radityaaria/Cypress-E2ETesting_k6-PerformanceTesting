@@ -13,6 +13,6 @@ describe('Create Product Negative - Validation Empty Submission', () => {
             const t = $body.text();
             expect(/wajib|kosong|diisi|required/i.test(t)).to.be.true;
         });
-        cy.screenshot('create-product-validation-empty-submission');
+        cy.screenshotFull('create-product-validation-empty-submission');
     });
 });

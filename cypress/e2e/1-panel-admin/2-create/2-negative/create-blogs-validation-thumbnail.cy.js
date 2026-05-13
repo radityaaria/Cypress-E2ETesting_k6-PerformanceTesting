@@ -11,6 +11,6 @@ describe('Create Blogs Negative - Validation Thumbnail', () => {
         cy.contains('Buat Blog').click();
 
         cy.url().should('include', '/blogs/create');
-        cy.screenshot('create-blogs-validation-thumbnail');
+        cy.screenshotFull('create-blogs-validation-thumbnail');
     });
 });

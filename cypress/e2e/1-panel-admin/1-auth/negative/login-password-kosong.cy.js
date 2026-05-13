@@ -12,6 +12,6 @@ describe('login negative empty password', () => {
             .and('be.disabled');
 
         cy.url({ timeout: 10000 }).should('include', '/login');
-        cy.screenshot('login-negative-password-kosong');
+        cy.screenshotFull('login-negative-password-kosong');
     });
 });

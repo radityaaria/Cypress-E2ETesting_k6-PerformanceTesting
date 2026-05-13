@@ -28,6 +28,6 @@ describe('Create Product Negative - Validation Format Akun 1 Unchecked', () => {
         h.uploadThumbnail();
 
         h.submitExpectingClientValidation(/Format\s*1|format\s*1|format\s*akun|label.*wajib|wajib.*label|centang/i);
-        cy.screenshot('create-product-validation-format-akun-1-unchecked');
+        cy.screenshotFull('create-product-validation-format-akun-1-unchecked');
     });
 });

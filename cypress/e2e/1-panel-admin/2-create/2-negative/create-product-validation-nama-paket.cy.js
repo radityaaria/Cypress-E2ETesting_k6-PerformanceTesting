@@ -50,6 +50,6 @@ describe('Create Product Negative - Validation Nama Paket', () => {
         h.clickSimpanProduk();
         h.assertCreateProductNotPosted();
         h.assertStaysOnCreatePage();
-        cy.screenshot('create-product-validation-nama-paket');
+        cy.screenshotFull('create-product-validation-nama-paket');
     });
 });
