@@ -16,7 +16,7 @@ describe('Create Role', () => {
         cy.contains('Pilih Semua').click();
         cy.contains('Buat Role').click();
     });
-
+    
 });
 
 
