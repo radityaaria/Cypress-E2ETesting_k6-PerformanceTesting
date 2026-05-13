@@ -3,6 +3,7 @@ node_modules/
 
 # Local configuration and secrets
 cypress.env.json
+cypress.config.js
 
 # Test artifacts
 cypress/screenshots/
