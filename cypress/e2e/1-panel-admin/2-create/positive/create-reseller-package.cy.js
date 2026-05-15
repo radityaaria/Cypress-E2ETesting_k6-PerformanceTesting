@@ -15,19 +15,19 @@ describe('Create Reseller Package', () => {
             .clear()
             .type('Cypress Reseller');
         
-        cy.get('#input-19')
+        cy.get('[data-cy="reseller-package-variant-original-price-0"] input')
             .clear()
             .type('10000');
 
-        cy.get('#input-21')
+        cy.get('[data-cy="reseller-package-variant-selling-price-0"] input')
             .clear()
             .type('8000');
 
-        cy.get('#input-23')
+        cy.get('[data-cy="reseller-package-variant-discount-badge-0"] input')
             .clear()
             .type('20%');
         
-        cy.get('#input-30')
+        cy.get('input[placeholder="Nama fitur"]').first()
             .clear()
             .type('Cypress Priority');
         
