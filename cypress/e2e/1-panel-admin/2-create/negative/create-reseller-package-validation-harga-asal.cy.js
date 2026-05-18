@@ -16,6 +16,7 @@ describe('Create Reseller Package Negative - Validation Harga Asal', () => {
         // Isi kolom utama dengan data valid
         cy.get('input[id*="Nama Paket"]').clear().type('Paket Cypress');
         cy.get('input[id*="Badge Text"]').clear().type('Cypress Reseller');
+        cy.get('input[placeholder="Nama fitur"]').first().clear().type('Cypress Priority');
 
         // Isi Harga Asal dengan 0
         cy.get('[data-cy="reseller-package-variant-original-price-0"] input').clear().type('0');

@@ -1,11 +1,11 @@
-describe('Create Reseller Package Negative - Validation Harga Jual Lebih Besar dari Harga Asal', () => {
+describe('Create Reseller Package Negative - Validation Harga Asal Tidak Boleh Lebih Besar dari Harga Jual', () => {
 
     beforeEach(() => {
         cy.login();
         cy.visit('/reseller-packages/create');
     });
 
-    it('harga jual tidak boleh lebih besar dari harga asal', () => {
+    it('harga asal tidak boleh lebih besar dari harga jual (harga jual harus >= harga asal)', () => {
         let createRequestCount = 0;
 
         cy.intercept('POST', '**/reseller-packages**', (req) => {
@@ -13,14 +13,14 @@ describe('Create Reseller Package Negative - Validation Harga Jual Lebih Besar d
             req.continue();
         });
 
-        // Isi kolom utama dengan data valid
         cy.get('input[id*="Nama Paket"]').clear().type('Paket Cypress');
         cy.get('input[id*="Badge Text"]').clear().type('Cypress Reseller');
+        cy.get('input[placeholder="Nama fitur"]').first().clear().type('Cypress Priority');
 
-        // Isi Harga Jual lebih besar dari Harga Asal
-        cy.get('[data-cy="reseller-package-variant-original-price-0"] input').clear().type('10000');
-        cy.get('[data-cy="reseller-package-variant-selling-price-0"] input').clear().type('50000');
-
+        // Seharusnya Harga Jual >= Harga Asal agar ada margin keuntungan
+        cy.get('[data-cy="reseller-package-variant-original-price-0"] input').clear().type('12500');
+        cy.get('[data-cy="reseller-package-variant-selling-price-0"] input').clear().type('10000');
+cy.get('[data-cy="reseller-package-variant-discount-badge-0"] input').clear().type('10');
         cy.contains('button', 'Buat Paket').click();
 
         cy.wait(500).then(() => {
@@ -31,10 +31,10 @@ describe('Create Reseller Package Negative - Validation Harga Jual Lebih Besar d
 
         cy.get('body').should(($body) => {
             const t = $body.text();
-            expect(/harga jual.*lebih besar|harga jual.*tidak boleh.*lebih|harga jual.*melebihi|harga asal.*lebih kecil|harga.*tidak valid/i.test(t)).to.be.true;
+            expect(/harga asal.*lebih besar|harga jual.*lebih kecil|harga jual.*tidak boleh.*kurang|harga.*tidak valid|harga asal.*tidak boleh/i.test(t)).to.be.true;
         });
 
-        cy.screenshotFull('create-reseller-package-validation-harga-jual-lebih-besar-dari-harga-asal');
+        cy.screenshotFull('create-reseller-package-validation-harga-asal-tidak-boleh-lebih-besar-dari-harga-jual');
     });
 
 });

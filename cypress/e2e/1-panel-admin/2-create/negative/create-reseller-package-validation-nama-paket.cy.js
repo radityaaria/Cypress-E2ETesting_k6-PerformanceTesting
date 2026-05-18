@@ -15,6 +15,7 @@ describe('Create Reseller Package Negative - Validation Nama Paket', () => {
 
         // Isi kolom lain dengan data valid
         cy.get('input[id*="Badge Text"]').clear().type('Cypress Reseller');
+        cy.get('input[placeholder="Nama fitur"]').first().clear().type('Cypress Priority');
 
         // Kosongkan Nama Paket
         cy.get('input[id*="Nama Paket"]').clear();

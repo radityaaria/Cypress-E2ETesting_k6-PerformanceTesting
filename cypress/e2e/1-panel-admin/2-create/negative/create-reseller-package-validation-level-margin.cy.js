@@ -16,9 +16,13 @@ describe('Create Reseller Package Negative - Validation Level Margin', () => {
         // Isi kolom lain dengan data valid
         cy.get('input[id*="Nama Paket"]').clear().type('Paket Cypress');
         cy.get('input[id*="Badge Text"]').clear().type('Cypress Reseller');
+        cy.get('input[placeholder="Nama fitur"]').first().clear().type('Cypress Priority');
 
         // Isi Level Margin dengan nilai negatif
         cy.get('input[id*="Level Margin"]').clear().type('-1');
+        cy.get('[data-cy="reseller-package-variant-original-price-0"] input').clear().type('10000');
+        cy.get('[data-cy="reseller-package-variant-selling-price-0"] input').clear().type('12500');
+        cy.get('[data-cy="reseller-package-variant-discount-badge-0"] input').clear().type('10');
 
         cy.contains('button', 'Buat Paket').click();
 
