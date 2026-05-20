@@ -10,7 +10,6 @@ import { check, sleep } from 'k6';
  *   k6 run cypress/performance/login-load-test.js
  */
 
-// Baca credential dari cypress.env.json
 const envFile = JSON.parse(open('../../cypress.env.json'));
 
 const BASE_URL = 'https://api-customer-dev.temansantaimu.com';
@@ -42,9 +41,6 @@ export default function () {
     };
 
     const res = http.post(`${BASE_URL}/auth/admin/login`, loginPayload, { headers });
-
-    console.log(`Status: ${res.status}`);
-    console.log(`Body: ${res.body}`);
 
     check(res, {
         'status is 200': (r) => r.status === 200,
