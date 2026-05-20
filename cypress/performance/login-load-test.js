@@ -12,6 +12,7 @@ import { check, sleep } from 'k6';
 
 const envFile = JSON.parse(open('../../cypress.env.json'));
 
+// const BASE_URL = 'https://api-customer-dev.temansantaimu.com';
 const BASE_URL = 'https://api-customer-dev.temansantaimu.com';
 const USER_PHONE = envFile.USER_PHONE;
 const USER_PASSWORD = envFile.USER_PASSWORD;
@@ -40,7 +41,8 @@ export default function () {
         'Content-Type': 'application/json',
     };
 
-    const res = http.post(`${BASE_URL}/auth/admin/login`, loginPayload, { headers });
+    // const res = http.post(`${BASE_URL}/auth/admin/login`, loginPayload, { headers });
+    const res = http.post(`${BASE_URL}/auth/login`, loginPayload, { headers });
 
     check(res, {
         'status is 200': (r) => r.status === 200,
